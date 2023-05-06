@@ -45,7 +45,7 @@ const Search = () => {
                         text-center
                     "
                     >
-                        Any Week
+                    Any Week
                     </div>
 
                     <div
