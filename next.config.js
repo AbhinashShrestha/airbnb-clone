@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    esmExternals: false, //fix out of heap memory
   },
   images:{
     domains:[

@@ -8,6 +8,7 @@ const Logo = () =>{
 
     return (
         <Image
+        onClick={()=>router.push('/')} //if i click on the logo i go to the main page without any selections
         alt = "Logo"
         className='hidden md:block cursor-pointer'
         height="100"

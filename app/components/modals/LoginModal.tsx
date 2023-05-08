@@ -15,6 +15,7 @@ import { toast } from "react-hot-toast";
 import Button from "../Button";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { useRouter } from 'next/navigation';
+import RegisterModal from "./RegisterModal";
 
 export default function LoginModal() {
     const router = useRouter();
@@ -29,7 +30,6 @@ export default function LoginModal() {
         }
     }=useForm<FieldValues>({
         defaultValues: {
-            // name: '',
             email: '', 
             password: ''
         }
@@ -55,6 +55,11 @@ export default function LoginModal() {
             }
         })
     }
+
+    const toggle = useCallback(()=>{
+        LoginModal.onClose()
+        registerModal.onOpen();
+    },[LoginModal,registerModal])
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
@@ -107,16 +112,18 @@ export default function LoginModal() {
                 "
             >
                 <div className="justify-center flex flex-row items-center gap-2">
-                    <div>Already have an account?</div>
+                    <div>
+                       First time using Airbnb?
+                    </div>
                     <div
-                        onClick={registerModal.onClose}
+                        onClick={toggle} //if you click login from sign up you go to login modal and vice versa
                         className="
                             text-neutral-800
                             cursor-pointer
                             hover:underline
                         "
                     >
-                        Log in
+                        Create a new account
                     </div>
                 </div>
             </div>
