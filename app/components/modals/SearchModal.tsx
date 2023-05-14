@@ -111,7 +111,7 @@ const SearchModal = () => {
 
   const secondaryActionLabel = useMemo(() => {
     if (step === STEPS.LOCATION) {
-      return undefined
+      return null
     }
 
     return 'Back'
@@ -187,8 +187,8 @@ const SearchModal = () => {
       title="Filters"
       actionLabel={actionLabel}
       onSubmit={onSubmit}
-      secondaryActionLabel={secondaryActionLabel}
-      secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
+      secondaryActionLabel={secondaryActionLabel || null}
+      secondaryAction={step === STEPS.LOCATION ? null : onBack}
       onClose={searchModal.onClose}
       body={bodyContent}
     />
