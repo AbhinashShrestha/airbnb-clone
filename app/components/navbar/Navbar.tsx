@@ -7,7 +7,7 @@ import Search from "./Search";
 import UserMenu from "./UserMenu";
 
 interface NavbarProps {
-  currentUser?: SafeUser | null;
+  currentUser: SafeUser | null;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
