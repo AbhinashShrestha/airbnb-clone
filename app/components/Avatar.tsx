@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { StaticImageData } from 'next/image'
 
 interface AvatarProps {
- src?: string | StaticImageData | null | undefined
+ src?: string | StaticImageData | null
 }
 
 const Avatar: React.FC<AvatarProps> = ({
