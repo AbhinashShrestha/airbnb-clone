@@ -8,6 +8,7 @@ import useLoginModal from '@/app/hooks/useLoginModal';
 import { signOut } from 'next-auth/react';
 import { SafeUser } from '@/app/types';
 import useRentModal from '@/app/hooks/useRentModal';
+import { useRouter } from 'next/navigation';
 
 interface UserMenuProps {
     currentUser: SafeUser | null;
@@ -17,6 +18,7 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({
     currentUser
 })=>{
+    const router = useRouter();
     const registerModal = useRegisterModal();
     const LoginModal = useLoginModal();
     const rentModal = useRentModal();
@@ -71,7 +73,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 hover:shadow-md
                 transition
                 "
-                >
+                >   
+                <div className='flex flex-row font-semibold'>{currentUser?.name}</div> 
                     <AiOutlineMenu/>
                     <div className='hidden md:block'>
                         <Avatar  src={currentUser?.image}/>
@@ -99,19 +102,19 @@ const UserMenu: React.FC<UserMenuProps> = ({
                         {currentUser ? (
                              <>
                                 <MenuItem
-                                    onClick={()=>{}}
+                                    onClick={()=>router.push('/trips')}
                                     label='My Trips'
                                 />
                                 <MenuItem
-                                    onClick={()=>{}}
+                                    onClick={()=>router.push('/favorites')}
                                     label='My Favorites'
                                 />
                                  <MenuItem
-                                    onClick={()=>{}}
+                                    onClick={()=>router.push('/reservations')}
                                     label='My Reservations'
                                 />
                                  <MenuItem
-                                    onClick={()=>{}}
+                                    onClick={()=>router.push('/properties')}
                                     label='My Properties'
                                 />
                                  <MenuItem
