@@ -15,7 +15,7 @@ import SearchModal from './components/modals/SearchModal'
 const font = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Airbnb',
+  title: 'Ghar Rent',
   description: 'Rent your home as a Hotel',
 }
 
